@@ -1,14 +1,21 @@
 import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
 import {juggler} from '@loopback/repository';
+require('dotenv').config();
+const {
+  DB_USER,
+  DB_PASSWORD,
+  DB_HOST,
+  DB_PORT
+} = process.env;
 
 const config = {
   name: 'postgres',
   connector: 'postgresql',
   url: '',
-  host: 'localhost',
-  port: 5432,
-  user: 'postgres',
-  password: '12345678',
+  host: DB_HOST,
+  port: DB_PORT,
+  user: DB_USER,
+  password: DB_PASSWORD,
   database: 'drinks'
 };
 

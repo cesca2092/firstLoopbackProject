@@ -1,5 +1,6 @@
 import {ApplicationConfig} from '@loopback/core';
 import {FirstprojectApplication} from './application';
+require('dotenv').config();
 
 /**
  * Export the OpenAPI spec from the application
@@ -7,8 +8,8 @@ import {FirstprojectApplication} from './application';
 async function exportOpenApiSpec(): Promise<void> {
   const config: ApplicationConfig = {
     rest: {
-      port: +(process.env.PORT ?? 3000),
-      host: process.env.HOST ?? 'localhost',
+      port: +(process.env.APP_PORT ?? 3000),
+      host: process.env.APP_HOST ?? 'localhost',
     },
   };
   const outFile = process.argv[2] ?? '';
